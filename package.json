@@ -1,0 +1,36 @@
+{
+  "name": "hexo-feed-generator",
+  "version": "0.0.1",
+  "description": "Atom feed generator plugin for Hexo",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ChrisYip/hexo-feed-generator.git"
+  },
+  "keywords": [
+    "website",
+    "blog",
+    "cms",
+    "framework",
+    "hexo"
+  ],
+  "author": {
+    "name": "Chris Yip",
+    "email": "i@chrisyip.im",
+    "url": "http://chrisyip.im/"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.github.com/ChrisYip/hexo-feed-generator/master/LICENSE"
+  },
+  "engines": {
+    "hexo": ">=0.5.0"
+  },
+  "dependencies": {
+    "jstoxml": "*"
+  },
+  "readme": "# Feed generator plugin for [Hexo]\n\nThis plugin can generate Atom 1.0.\n\n## Usage\n\n### Install\n\n```\nnpm install git://github.com/ChrisYip/hexo-feed-generator.git --save\n```\n\n### Enable\n\nAdd `hexo-feed-generator` to `plugins` in `_config.yml`.\n\n``` yaml\nplugins:\n- hexo-feed-generator\n```\n\n### Configuration\n\nAdd the following options to __global__ `config.yml`:\n\n```\npermalink_label_feed: \"&infin; Permalink\"\nlinklog_marker: \"&rarr;&nbsp;\"\nlinklog_marker_position_feed:\nstandard_post_marker:\nstandard_post_marker_position_feed:\n```\n\n### Disable\n\nRemove `hexo-feed-generator` from `plugins` in `_config.yml`.\n\n``` yaml\nplugins:\n- hexo-feed-generator\n```\n\n### Update\n\nExecute the following command.\n\n```\nnpm update\n```\n\n### Uninstall\n\nExecute the following command. Don't forget to disable the plugin before uninstalling.\n\n```\nnpm uninstall hexo-feed-generator\n```\n\n[Hexo]: http://zespia.tw/hexo",
+  "readmeFilename": "README.md",
+  "_id": "hexo-feed-generator@0.0.1",
+  "_from": "hexo-feed-generator@"
+}
