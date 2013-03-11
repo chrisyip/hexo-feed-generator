@@ -1,6 +1,6 @@
 {
   "name": "hexo-feed-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Atom feed generator plugin for Hexo",
   "main": "index",
   "repository": {
@@ -24,7 +24,7 @@
     "url": "https://raw.github.com/ChrisYip/hexo-feed-generator/master/LICENSE"
   },
   "engines": {
-    "hexo": ">=0.5.0"
+    "hexo": ">=1.0.0"
   },
   "dependencies": {
     "jstoxml": "*"

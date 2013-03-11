@@ -1,6 +1,4 @@
-var util = hexo.util
-  , file = util.file
-  , extend = hexo.extend
+var extend = hexo.extend
   , route = hexo.route
   , xml = require( 'jstoxml' )
 
@@ -38,10 +36,10 @@ extend.generator.register( function( locals, render, callback ) {
     }
   ]
 
-  if ( config.email ) content[5].author.email = '<![CDATA[' + config.email + ']]>'
+  if ( config.email ) content[ 5 ].author.email = '<![CDATA[' + config.email + ']]>'
   if ( config.subtitle ) content.splice( 1, 0, { subtitle: '<![CDATA[' + config.subtitle + ']]>'} )
 
-  locals.posts.limit(20).each( function( item ) {
+  locals.posts.sort( 'date', -1 ).limit( 20 ).each( function( item ) {
     var title = item.title
       , html_content = item.content
       , link = item.permalink
@@ -98,7 +96,7 @@ extend.generator.register( function( locals, render, callback ) {
     ]
 
     if ( item.tags || item.categories ){
-      var items = [].concat( item.tags, item.categories )
+      var items = [].concat( item.tags.toArray(), item.categories.toArray() )
         , categories = []
         , caseConverter = function(){
           switch ( config.filename_case ) {
@@ -113,22 +111,22 @@ extend.generator.register( function( locals, render, callback ) {
 
       items.forEach( function( item ) {
         if ( !item ) return
-        categories.push({
+        categories.push( {
           _name: 'category',
           _attrs: {
             scheme: caseConverter.call( item.permalink ),
             term: item.name
           }
-        })
-      })
+        } )
+      } )
 
       entry = [].concat( entry, categories )
     }
 
     content.push( { entry: entry } )
-  });
+  } )
 
-  var result = xml.toXML({
+  var result = xml.toXML( {
     _name: 'feed',
     _attrs: {
       xmlns: 'http://www.w3.org/2005/Atom'
@@ -138,4 +136,4 @@ extend.generator.register( function( locals, render, callback ) {
 
   route.set( 'atom.xml', result )
   callback()
-});
+} )
